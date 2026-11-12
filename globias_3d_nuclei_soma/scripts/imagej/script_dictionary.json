@@ -1,0 +1,10 @@
+{
+    "phase6_figure5_representative_raw_channels_pixel_scale.groovy": {
+        "full_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/imagej/phase6_figure5_representative_raw_channels_pixel_scale.groovy",
+        "language": "Groovy",
+        "description": "Creates figure5_representative_raw_channels_pixel_scale.png from raw registered F0003 DAPI and soma TIFF stacks by selecting central 1-based Z plane (z=42 for 84-slice stacks), applying display-only robust contrast on duplicate slice panels (histogram p1.0\u2013p99.8), adding channel labels and a 100 px white scale bar (thickness 6 px, label exactly '100 px') to each grayscale panel, and writing sidecar caption metadata file figure5_representative_raw_channels_pixel_scale_caption.txt with source paths, Z plane, adjustment details, and explicit calibration caveat (pixel units only; no micron bar). This QA publication correction does not run or alter micro_sam segmentation/statistics; recommended micro_sam plugin is not applicable because this task is display-only figure assembly from existing raw stacks.",
+        "version": 1,
+        "last_modified": "2026-11-12T12:17:18.903445",
+        "history": []
+    }
+}

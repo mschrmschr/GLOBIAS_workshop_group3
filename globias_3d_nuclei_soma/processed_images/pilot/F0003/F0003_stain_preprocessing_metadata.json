@@ -1,0 +1,108 @@
+{
+  "input_tif": "/data/tasks/Globias_workshop/stain/F0003_stain.tif",
+  "output_preprocessed_tif": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+  "output_qc_png": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_preprocessing_qc_raw_vs_corrected.png",
+  "shape_zyx": [
+    84,
+    1000,
+    1000
+  ],
+  "raw_dtype": "uint16",
+  "output_dtype": "float32",
+  "notes": {
+    "biological_marker_identity": "unknown somatic membrane stain (user-described)",
+    "calibration_note": "Physical Z spacing unknown; preprocessing preserves voxel geometry and does not apply calibration."
+  },
+  "normalization": {
+    "method": "global_whole_volume_percentile_clip_then_minmax",
+    "low_percentile": 0.5,
+    "high_percentile": 99.8,
+    "low_value_before_scaling": 90.93509674072266,
+    "high_value_before_scaling": 246.98495483398438
+  },
+  "slice_drift_assessment": {
+    "slice_p10_first5": [
+      135.0,
+      134.0,
+      134.0,
+      134.0,
+      134.0
+    ],
+    "slice_p50_first5": [
+      169.0,
+      165.0,
+      164.0,
+      165.0,
+      167.0
+    ],
+    "slice_p90_first5": [
+      186.0,
+      182.0,
+      184.0,
+      189.0,
+      198.0
+    ],
+    "median_slope_per_slice": -0.3292295231345548,
+    "slice_median_span_p95_minus_p5": 83.85000610351562,
+    "drift_fraction_vs_global_dynamic": 0.30602192008582346,
+    "slice_equalization_applied": false,
+    "rationale": "Assessed only; slice-wise normalization intentionally avoided per pipeline requirement."
+  },
+  "puncta_and_membrane_assessment": {
+    "puncta_fraction_from_99p9_high_frequency_residual": 0.21740332832378317,
+    "mild_denoise_used": true,
+    "mild_denoise_sigma_zyx": [
+      0.0,
+      0.6,
+      0.6
+    ],
+    "mild_denoise_trigger_fraction": 0.02,
+    "membrane_edge_strength_mean_representative_slices": 7.0685495138168335,
+    "membrane_edge_density_mean_representative_slices": 0.09976950000000001,
+    "representative_slices_used_for_edge_metrics": [
+      0,
+      2,
+      42,
+      83
+    ]
+  },
+  "background_correction": {
+    "method": "3d_gaussian_low_frequency_subtraction_above_floor",
+    "sigma_zyx": [
+      1.0,
+      40.0,
+      40.0
+    ],
+    "spatial_haze_fraction": 0.412690378438548,
+    "haze_threshold_for_alpha_switch": 0.15,
+    "alpha_used": 0.9,
+    "bg_floor_p5": 121.96669006347656
+  },
+  "qc_slices": {
+    "low_signal_z": 2,
+    "mid_z": 42,
+    "high_signal_z": 17
+  },
+  "percentiles_raw": {
+    "p0": 101.0,
+    "p0.5": 106.0,
+    "p1": 108.0,
+    "p5": 120.0,
+    "p50": 203.0,
+    "p95": 282.0,
+    "p99": 322.0,
+    "p99.8": 380.0,
+    "p100": 14237.0
+  },
+  "percentiles_corrected_normalized": {
+    "p0": 0.0,
+    "p0.5": 0.0,
+    "p1": 0.029786246772855518,
+    "p5": 0.11319092661142349,
+    "p50": 0.2323322594165802,
+    "p95": 0.4449010595679277,
+    "p99": 0.6490922594070447,
+    "p99.8": 1.0,
+    "p100": 1.0
+  }
+}

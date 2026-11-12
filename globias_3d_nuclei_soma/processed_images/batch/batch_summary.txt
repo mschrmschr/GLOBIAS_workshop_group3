@@ -1,0 +1,12 @@
+Batch micro_sam 3D segmentation summary
+Timestamp UTC: 2026-11-12T11:56:39.533132Z
+Valid fields in manifest: 20
+Fields attempted: 20
+Fields OK: 20
+Fields partial/failed: 0
+Failure records: 0
+Model: vit_b_lm (ais) on cuda
+Nuclei combined CSV: /app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_nuclei_objects_combined.csv
+Soma combined CSV: /app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_soma_objects_combined.csv
+Counts CSV: /app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_per_field_counts_status.csv
+Failures CSV: /app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_failures.csv

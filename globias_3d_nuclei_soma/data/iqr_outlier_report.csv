@@ -1,0 +1,7 @@
+variable,iqr_k,lower_fence,upper_fence,n_outliers,n_nonmissing,units
+dapi_total_nuclei_count,1.5,2456.25,7288.25,0,20,objects_per_field
+soma_total_object_count,1.5,29.0,429.0,4,20,objects_per_field
+dapi_nonborder_nuclei_count,1.5,2090.375,5927.375,1,20,objects_per_field
+soma_nonborder_object_count,1.5,25.25,371.25,4,20,objects_per_field
+nuclei_to_soma_ratio_total_safe,1.5,-1.8992188040905944,47.91741186904653,0,20,ratio
+nuclei_to_soma_ratio_nonborder_safe,1.5,-6.163618568754398,50.03946668781134,0,20,ratio

@@ -1,0 +1,455 @@
+{
+  "timestamp_utc": "2026-11-12T11:56:39.533132Z",
+  "project_dir": "/app/data/projects/globias_3d_nuclei_soma",
+  "manifest_csv": "/app/data/projects/globias_3d_nuclei_soma/data/input_integrity_manifest.csv",
+  "batch_output_dir": "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch",
+  "n_fields_in_manifest_valid": 20,
+  "n_fields_attempted": 20,
+  "n_fields_ok": 20,
+  "n_fields_partial_or_failed": 0,
+  "n_failures_logged": 0,
+  "field_status_table": [
+    {
+      "field_id": "F0003",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0006",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0009",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0011",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0012",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0021",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0027",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0041",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0050",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0070",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0072",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0073",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0077",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0078",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0079",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0080",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0084",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0093",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0094",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    },
+    {
+      "field_id": "F0096",
+      "dapi_status": "processed",
+      "soma_status": "processed",
+      "field_status": "ok"
+    }
+  ],
+  "model": {
+    "model_type": "vit_b_lm",
+    "segmentation_mode": "ais",
+    "checkpoint_path": null,
+    "device": "cuda",
+    "torch_cuda_available": true
+  },
+  "approved_parameters": {
+    "dapi_background_sigma_xy_px": 40.0,
+    "dapi_background_alpha": 0.9,
+    "soma_denoise_sigma_zyx": [
+      0.0,
+      0.6,
+      0.6
+    ],
+    "soma_background_sigma_xy_px": 40.0,
+    "soma_background_alpha": 0.9,
+    "normalization_percentiles": [
+      0.5,
+      99.8
+    ],
+    "slice_equalization": "disabled",
+    "nuclei_min_voxels": 25,
+    "soma_voxel_range_inclusive": [
+      300,
+      18310
+    ]
+  },
+  "provisional_calibration": {
+    "xy_um": 0.324512482,
+    "z_um_assumed": 1.0,
+    "voxel_um3": 0.10530835097380031,
+    "note": "Primary size unit is voxel count. um^3 values are provisional."
+  },
+  "outputs": {
+    "nuclei_combined_csv": "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_nuclei_objects_combined.csv",
+    "soma_combined_csv": "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_soma_objects_combined.csv",
+    "counts_csv": "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_per_field_counts_status.csv",
+    "failures_csv": "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_failures.csv"
+  },
+  "per_field_output_inventory": {
+    "F0003": [
+      "F0003_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0003_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0003_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0003_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0003_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0003_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0003_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0003_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0003_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0003_stain_micro_sam_3d_soma_metadata.json",
+      "F0003_stain_micro_sam_3d_soma_objects.csv",
+      "F0003_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0006": [
+      "F0006_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0006_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0006_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0006_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0006_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0006_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0006_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0006_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0006_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0006_stain_micro_sam_3d_soma_metadata.json",
+      "F0006_stain_micro_sam_3d_soma_objects.csv",
+      "F0006_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0009": [
+      "F0009_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0009_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0009_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0009_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0009_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0009_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0009_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0009_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0009_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0009_stain_micro_sam_3d_soma_metadata.json",
+      "F0009_stain_micro_sam_3d_soma_objects.csv",
+      "F0009_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0011": [
+      "F0011_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0011_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0011_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0011_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0011_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0011_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0011_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0011_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0011_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0011_stain_micro_sam_3d_soma_metadata.json",
+      "F0011_stain_micro_sam_3d_soma_objects.csv",
+      "F0011_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0012": [
+      "F0012_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0012_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0012_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0012_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0012_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0012_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0012_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0012_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0012_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0012_stain_micro_sam_3d_soma_metadata.json",
+      "F0012_stain_micro_sam_3d_soma_objects.csv",
+      "F0012_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0021": [
+      "F0021_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0021_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0021_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0021_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0021_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0021_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0021_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0021_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0021_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0021_stain_micro_sam_3d_soma_metadata.json",
+      "F0021_stain_micro_sam_3d_soma_objects.csv",
+      "F0021_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0027": [
+      "F0027_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0027_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0027_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0027_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0027_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0027_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0027_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0027_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0027_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0027_stain_micro_sam_3d_soma_metadata.json",
+      "F0027_stain_micro_sam_3d_soma_objects.csv",
+      "F0027_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0041": [
+      "F0041_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0041_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0041_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0041_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0041_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0041_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0041_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0041_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0041_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0041_stain_micro_sam_3d_soma_metadata.json",
+      "F0041_stain_micro_sam_3d_soma_objects.csv",
+      "F0041_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0050": [
+      "F0050_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0050_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0050_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0050_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0050_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0050_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0050_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0050_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0050_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0050_stain_micro_sam_3d_soma_metadata.json",
+      "F0050_stain_micro_sam_3d_soma_objects.csv",
+      "F0050_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0070": [
+      "F0070_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0070_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0070_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0070_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0070_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0070_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0070_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0070_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0070_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0070_stain_micro_sam_3d_soma_metadata.json",
+      "F0070_stain_micro_sam_3d_soma_objects.csv",
+      "F0070_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0072": [
+      "F0072_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0072_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0072_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0072_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0072_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0072_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0072_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0072_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0072_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0072_stain_micro_sam_3d_soma_metadata.json",
+      "F0072_stain_micro_sam_3d_soma_objects.csv",
+      "F0072_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0073": [
+      "F0073_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0073_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0073_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0073_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0073_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0073_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0073_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0073_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0073_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0073_stain_micro_sam_3d_soma_metadata.json",
+      "F0073_stain_micro_sam_3d_soma_objects.csv",
+      "F0073_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0077": [
+      "F0077_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0077_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0077_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0077_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0077_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0077_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0077_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0077_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0077_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0077_stain_micro_sam_3d_soma_metadata.json",
+      "F0077_stain_micro_sam_3d_soma_objects.csv",
+      "F0077_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0078": [
+      "F0078_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0078_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0078_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0078_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0078_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0078_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0078_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0078_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0078_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0078_stain_micro_sam_3d_soma_metadata.json",
+      "F0078_stain_micro_sam_3d_soma_objects.csv",
+      "F0078_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0079": [
+      "F0079_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0079_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0079_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0079_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0079_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0079_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0079_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0079_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0079_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0079_stain_micro_sam_3d_soma_metadata.json",
+      "F0079_stain_micro_sam_3d_soma_objects.csv",
+      "F0079_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0080": [
+      "F0080_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0080_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0080_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0080_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0080_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0080_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0080_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0080_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0080_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0080_stain_micro_sam_3d_soma_metadata.json",
+      "F0080_stain_micro_sam_3d_soma_objects.csv",
+      "F0080_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0084": [
+      "F0084_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0084_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0084_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0084_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0084_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0084_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0084_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0084_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0084_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0084_stain_micro_sam_3d_soma_metadata.json",
+      "F0084_stain_micro_sam_3d_soma_objects.csv",
+      "F0084_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0093": [
+      "F0093_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0093_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0093_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0093_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0093_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0093_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0093_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0093_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0093_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0093_stain_micro_sam_3d_soma_metadata.json",
+      "F0093_stain_micro_sam_3d_soma_objects.csv",
+      "F0093_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0094": [
+      "F0094_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0094_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0094_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0094_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0094_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0094_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0094_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0094_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0094_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0094_stain_micro_sam_3d_soma_metadata.json",
+      "F0094_stain_micro_sam_3d_soma_objects.csv",
+      "F0094_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ],
+    "F0096": [
+      "F0096_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+      "F0096_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+      "F0096_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+      "F0096_DAPI_micro_sam_3d_nuclei_metadata.json",
+      "F0096_DAPI_micro_sam_3d_nuclei_objects.csv",
+      "F0096_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+      "F0096_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+      "F0096_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+      "F0096_stain_micro_sam_3d_soma_labels_uint32.tif",
+      "F0096_stain_micro_sam_3d_soma_metadata.json",
+      "F0096_stain_micro_sam_3d_soma_objects.csv",
+      "F0096_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif"
+    ]
+  }
+}

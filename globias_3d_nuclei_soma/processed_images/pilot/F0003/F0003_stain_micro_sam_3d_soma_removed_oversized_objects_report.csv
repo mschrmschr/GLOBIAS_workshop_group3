@@ -1,0 +1,17 @@
+label_id,voxel_volume,intersects_z56,intersects_z77,bbox_zmin,bbox_zmax_exclusive,bbox_ymin,bbox_ymax_exclusive,bbox_xmin,bbox_xmax_exclusive,remove_small,remove_oversized,remove_final
+181,317847,True,False,55,63,0,364,228,897,False,True,True
+184,262654,False,False,65,71,0,312,232,783,False,True,True
+187,185514,False,False,71,76,0,442,257,1000,False,True,True
+186,178700,False,False,66,72,140,566,646,1000,False,True,True
+182,157110,False,False,58,63,147,551,630,1000,False,True,True
+140,147392,False,False,29,33,75,513,420,973,False,True,True
+194,138734,False,False,79,84,0,249,264,660,False,True,True
+196,136795,False,True,77,84,116,354,609,898,False,True,True
+141,134189,False,False,30,33,0,239,0,514,False,True,True
+185,109349,False,False,66,73,0,305,320,708,False,True,True
+135,70901,False,False,27,30,0,152,9,374,False,True,True
+136,68253,False,False,27,29,69,514,343,966,False,True,True
+139,54968,False,False,28,31,78,294,368,678,False,True,True
+56,30794,False,False,10,13,23,197,762,968,False,True,True
+197,25949,False,False,81,84,297,459,745,1000,False,True,True
+83,22422,False,False,13,17,281,408,610,750,False,True,True

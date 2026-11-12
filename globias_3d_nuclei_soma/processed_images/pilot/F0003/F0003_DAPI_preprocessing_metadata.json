@@ -1,0 +1,66 @@
+{
+  "input_tif": "/data/tasks/Globias_workshop/DAPI/F0003_DAPI.tif",
+  "output_preprocessed_tif": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+  "output_qc_png": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_preprocessing_qc_raw_vs_corrected.png",
+  "shape_zyx": [
+    84,
+    1000,
+    1000
+  ],
+  "raw_dtype": "uint16",
+  "output_dtype": "float32",
+  "normalization": {
+    "method": "global_whole_volume_percentile_clip_then_minmax",
+    "low_percentile": 0.5,
+    "high_percentile": 99.8,
+    "low_value_before_scaling": 30.92034912109375,
+    "high_value_before_scaling": 361.03472900390625
+  },
+  "slice_drift_assessment": {
+    "median_slope_per_slice": 0.17237015288042973,
+    "slice_median_span_p95_minus_p5": 35.850006103515625,
+    "drift_fraction_vs_global_dynamic": 0.09122138957637564,
+    "equalization_used": false,
+    "equalization_trigger_fraction": 0.12,
+    "gain_clip": [
+      0.8,
+      1.25
+    ],
+    "gain_min": 1.0,
+    "gain_max": 1.0
+  },
+  "background_correction": {
+    "method": "3d_gaussian_low_frequency_subtraction_above_floor",
+    "sigma_zyx": [
+      1.0,
+      40.0,
+      40.0
+    ],
+    "spatial_haze_fraction": 0.32708819827735025,
+    "haze_threshold_for_alpha": 0.15,
+    "alpha_used": 0.9,
+    "bg_floor_p5": 100.85049438476562
+  },
+  "percentiles_raw": {
+    "p0": 0.0,
+    "p0.5": 102.0,
+    "p1": 103.0,
+    "p5": 108.0,
+    "p50": 172.0,
+    "p95": 302.0,
+    "p99": 404.0,
+    "p99.8": 495.0,
+    "p100": 990.0
+  },
+  "percentiles_corrected_normalized": {
+    "p0": 0.0,
+    "p0.5": 0.0,
+    "p1": 0.02914066007360816,
+    "p5": 0.10265130549669266,
+    "p50": 0.2253044843673706,
+    "p95": 0.5084324479103088,
+    "p99": 0.7641512751579285,
+    "p99.8": 1.0,
+    "p100": 1.0
+  }
+}

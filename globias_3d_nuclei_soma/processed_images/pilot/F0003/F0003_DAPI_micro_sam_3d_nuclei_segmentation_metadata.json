@@ -1,0 +1,42 @@
+{
+  "timestamp_utc": "2026-11-12T10:48:29.866310Z",
+  "input_raw_dapi_path": "/data/tasks/Globias_workshop/DAPI/F0003_DAPI.tif",
+  "input_preprocessed_dapi_path": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+  "output_label_tif_path": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+  "output_objects_csv_path": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_objects_pilot.csv",
+  "output_qc_planes_png_path": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+  "output_qc_xy_mip_png_path": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+  "output_metadata_json_path": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_segmentation_metadata.json",
+  "volume_shape_zyx": [
+    84,
+    1000,
+    1000
+  ],
+  "volume_dtype": "float32",
+  "model_type": "vit_b_lm",
+  "segmentation_mode": "ais",
+  "checkpoint_path": null,
+  "device": "cuda",
+  "torch_cuda_available": true,
+  "parameters": {
+    "ndim": 3,
+    "min_voxels_filter": 25,
+    "xy_um_provisional": 0.324512482,
+    "z_um_assumed": 1.0
+  },
+  "counts": {
+    "objects_before_filtering": 3898,
+    "objects_removed_as_tiny": 101,
+    "objects_after_filtering": 3797,
+    "border_touching_after_filtering": 684
+  },
+  "calibration_caveat": "Physical calibration unavailable from metadata; all um^3 are provisional using XY=0.324512482 um and assumed Z=1.0 um.",
+  "package_versions": {
+    "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+    "torch": "2.11.0+cu126",
+    "micro_sam": "1.8.2",
+    "numpy": "2.4.4",
+    "pandas": "3.0.5",
+    "tifffile": "2026.3.3"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "timestamp_utc": "2026-11-12T10:55:12.346952Z",
+  "input_raw_stain_path": "/data/tasks/Globias_workshop/stain/F0003_stain.tif",
+  "input_preprocessed_stain_path": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+  "output_label_tif_path": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_labels_uint32.tif",
+  "output_objects_csv_path": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_objects_pilot.csv",
+  "output_qc_planes_png_path": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+  "output_qc_xy_mip_png_path": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png",
+  "output_metadata_json_path": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_segmentation_metadata.json",
+  "volume_shape_zyx": [
+    84,
+    1000,
+    1000
+  ],
+  "volume_dtype": "float32",
+  "model_type": "vit_b_lm",
+  "segmentation_mode": "ais",
+  "checkpoint_path": null,
+  "device": "cuda",
+  "torch_cuda_available": true,
+  "settings": {
+    "ndim": 3,
+    "min_voxels_filter": 300,
+    "xy_um_provisional": 0.324512482,
+    "z_um_assumed": 1.0,
+    "nuclei_to_soma_constraint": "none (no forced one-to-one mapping)",
+    "qc_plane_selection": {
+      "lowest_signal_z": 1,
+      "low_signal_z": 77,
+      "mid_signal_z": 56,
+      "high_signal_z": 26
+    }
+  },
+  "counts": {
+    "objects_before_filtering": 197,
+    "objects_removed_as_small": 48,
+    "objects_after_filtering": 149,
+    "border_touch_xy_after_filtering": 18,
+    "border_touch_z_after_filtering": 28
+  },
+  "calibration_caveat": "Physical calibration unavailable from metadata; um^3 values are explicitly provisional using XY=0.324512482 um and assumed Z=1.0 um.",
+  "size_filter_rationale": "Conservative minimum volume filter (300 voxels) to suppress residual punctate debris while retaining soma-like 3D objects for pilot review.",
+  "package_versions": {
+    "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]",
+    "torch": "2.11.0+cu126",
+    "micro_sam": "1.8.2",
+    "numpy": "2.4.4",
+    "pandas": "3.0.5",
+    "tifffile": "2026.3.3"
+  }
+}

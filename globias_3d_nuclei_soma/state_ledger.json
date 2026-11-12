@@ -1,0 +1,884 @@
+{
+  "project_root": "/app/data/projects/globias_3d_nuclei_soma",
+  "scientific_goal": "For 20 paired 3D fluorescence tissue fields, segment and count DAPI-positive nuclei and somatic membrane-marker-positive 3D objects, compare the two counts per field, and—if segmentation quality permits—report soma volume distributions.",
+  "image_metadata": {
+    "bit_depth": 16,
+    "n_channels": 2,
+    "channel_storage": "two registered matched single-channel TIFF stacks per field",
+    "n_z_slices": 84,
+    "n_timepoints": 1,
+    "n_images": 40,
+    "n_paired_fields": 20,
+    "dimensions": "ZYX per channel file",
+    "width_px": 1000,
+    "height_px": 1000,
+    "file_format": "TIFF",
+    "modality": "fluorescence tissue imaging",
+    "xy_scale_reported": 0.324512482,
+    "pixel_unit": "pixel (physical unit not identified by metadata extractor)",
+    "z_spacing": "not available from extracted metadata",
+    "representative_full_size_mib_per_channel": 160.2,
+    "background_mode": {
+      "DAPI_representative_first_plane": "metadata heuristic reported bright background; verify through full stack",
+      "soma_stain": "dark"
+    },
+    "data_quality_note": "Registered channels. Representative visual review found diffuse uneven background, focus/edge softness, signal heterogeneity, and punctate artifacts; pilot segmentation and human review required.",
+    "objective": "not provided",
+    "xy_pixel_size_um_provisional": 0.324512482,
+    "xy_calibration_basis": "numeric TIFF X/Y scale provisionally interpreted as µm/pixel, despite unit tag being pixel",
+    "z_spacing_um_provisional": 1.0,
+    "z_calibration_basis": "explicit provisional estimate only; no reliable TIFF metadata or user acquisition record",
+    "primary_size_units": "voxels and voxel count; physical µm³ values, if shown, must be labelled provisional",
+    "marker_identity": "unknown somatic membrane stain",
+    "biological_object_definition": "marker-positive 3D soma-like objects; exact antigen identity unavailable"
+  },
+  "channels": [
+    {
+      "index": 1,
+      "name": "DAPI",
+      "marker": "DAPI",
+      "color": "blue",
+      "purpose": "nuclei"
+    },
+    {
+      "index": 2,
+      "name": "somatic membrane stain",
+      "marker": "user-described somatic marker",
+      "purpose": "soma-marker-positive objects"
+    }
+  ],
+  "input_files": [
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0003_DAPI.tif",
+      "note": "field F0003 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0003_stain.tif",
+      "note": "field F0003 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0006_DAPI.tif",
+      "note": "field F0006 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0006_stain.tif",
+      "note": "field F0006 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0009_DAPI.tif",
+      "note": "field F0009 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0009_stain.tif",
+      "note": "field F0009 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0011_DAPI.tif",
+      "note": "field F0011 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0011_stain.tif",
+      "note": "field F0011 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0012_DAPI.tif",
+      "note": "field F0012 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0012_stain.tif",
+      "note": "field F0012 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0021_DAPI.tif",
+      "note": "field F0021 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0021_stain.tif",
+      "note": "field F0021 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0027_DAPI.tif",
+      "note": "field F0027 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0027_stain.tif",
+      "note": "field F0027 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0041_DAPI.tif",
+      "note": "field F0041 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0041_stain.tif",
+      "note": "field F0041 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0050_DAPI.tif",
+      "note": "field F0050 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0050_stain.tif",
+      "note": "field F0050 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0070_DAPI.tif",
+      "note": "field F0070 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0070_stain.tif",
+      "note": "field F0070 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0072_DAPI.tif",
+      "note": "field F0072 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0072_stain.tif",
+      "note": "field F0072 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0073_DAPI.tif",
+      "note": "field F0073 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0073_stain.tif",
+      "note": "field F0073 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0077_DAPI.tif",
+      "note": "field F0077 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0077_stain.tif",
+      "note": "field F0077 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0078_DAPI.tif",
+      "note": "field F0078 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0078_stain.tif",
+      "note": "field F0078 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0079_DAPI.tif",
+      "note": "field F0079 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0079_stain.tif",
+      "note": "field F0079 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0080_DAPI.tif",
+      "note": "field F0080 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0080_stain.tif",
+      "note": "field F0080 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0084_DAPI.tif",
+      "note": "field F0084 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0084_stain.tif",
+      "note": "field F0084 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0093_DAPI.tif",
+      "note": "field F0093 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0093_stain.tif",
+      "note": "field F0093 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0094_DAPI.tif",
+      "note": "field F0094 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0094_stain.tif",
+      "note": "field F0094 soma stain"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/DAPI/F0096_DAPI.tif",
+      "note": "field F0096 DAPI"
+    },
+    {
+      "path": "/data/tasks/Globias_workshop/stain/F0096_stain.tif",
+      "note": "field F0096 soma stain"
+    }
+  ],
+  "rag_references": [
+    {
+      "query": "Fiji 3D fluorescence tissue nuclei and membrane-stained soma segmentation connected components size filtering anisotropic voxel calibration",
+      "step": "requirements and strategy",
+      "finding": "Use true 3D segmentation, optional hole filling and watershed for touching nuclei, then 3D connected-component labeling and calibrated volume measurement; account for anisotropic Z spacing and validate thresholds/size filters on representative overlays."
+    },
+    {
+      "query": "micro_sam 3D automatic instance segmentation fluorescence volume preprocessing normalization background correction anisotropic z stack",
+      "step": "pilot_preprocessing_and_micro_sam_input",
+      "finding": "Work on float duplicates, correct spatially varying background conservatively before any optional detection-only enhancement, normalize each stain independently, keep raw images untouched, use a light-microscopy micro_sam model with AIS in the napari-mcp environment, set ndim=3 for array stacks, and validate the pilot overlay before batch use."
+    }
+  ],
+  "vlm_assessments": [
+    {
+      "pipeline_step": "input_review",
+      "overall_verdict": "INFO",
+      "summary": "Nuclei and soma-marker-positive structures are discernible for a pilot, but diffuse uneven background, soft edges, heterogeneity, and punctate artifacts make global thresholding risky.",
+      "issues_found": [
+        "Uneven and diffuse background",
+        "Limited edge sharpness or focus variation",
+        "Strong intensity and density heterogeneity",
+        "Punctate features or debris may mimic soma objects",
+        "Dim nuclei may be missed and adjacent nuclei may merge"
+      ],
+      "recommended_action": "Test conservative 3D background correction and instance segmentation on a representative stack; inspect z-planes and orthogonal views and obtain user feedback before batch processing.",
+      "image_paths_inspected": [
+        "/data/tasks/Globias_workshop/DAPI/F0003_DAPI.tif",
+        "/data/tasks/Globias_workshop/stain/F0003_stain.tif"
+      ],
+      "success": true
+    },
+    {
+      "pipeline_step": "pilot_preprocess_dapi",
+      "overall_verdict": "WARN",
+      "summary": "Background haze was reduced and nuclear shapes were preserved without obvious halos, clipping, broken nuclei, or major noise amplification, but the corrected z=0 plane is very dark and may suppress some of the faintest nuclei.",
+      "issues_found": [
+        "Possible over-suppression of faint nuclear signal in the darkest edge plane, especially z=0."
+      ],
+      "recommended_action": "Check low-signal planes quantitatively and inspect the final 3D segmentation overlay with the user before batch processing.",
+      "image_paths_inspected": [
+        "/data/tasks/Globias_workshop/DAPI/F0003_DAPI.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_preprocessing_qc_raw_vs_corrected.png"
+      ],
+      "success": true
+    },
+    {
+      "pipeline_step": "pilot_preprocess_soma_stain",
+      "overall_verdict": "PASS",
+      "summary": "Diffuse haze and much isolated punctate background were reduced while membrane-like boundaries, dim soma-like structures, and low-signal content remained visible; no obvious halos, invented boundaries, severe blur, fragmentation, clipping, or slice discontinuity were seen.",
+      "issues_found": [
+        "Residual fine granular/punctate background remains and may create false 3D objects."
+      ],
+      "recommended_action": "Proceed provisionally, obtain user review, and inspect residual isolated components in the eventual 3D segmentation overlay.",
+      "image_paths_inspected": [
+        "/data/tasks/Globias_workshop/stain/F0003_stain.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_preprocessing_qc_raw_vs_corrected.png"
+      ],
+      "success": true
+    },
+    {
+      "pipeline_step": "pilot_segment_nuclei",
+      "overall_verdict": "FAIL",
+      "summary": "The original DAPI image rendered, but the uint32 label mask appeared black and the generated overlay showed no discernible labels; segmentation quality could not be judged and the stated 3,797 objects were not visually supported by this renderer.",
+      "issues_found": [
+        "Mask panel rendered entirely black",
+        "Overlay showed no discernible segmentation regions",
+        "Coverage, merges, fragmentation, false positives, and z=0 performance could not be assessed",
+        "The failure may reflect empty data or uint32 label-rendering/export incompatibility"
+      ],
+      "recommended_action": "Quantitatively verify nonzero labels and inspect the script-generated QC overlays plus the label stack in Fiji before accepting or debugging the segmentation.",
+      "image_paths_inspected": [
+        "/app/data/chats/vlm_captures/compilation_20261112_104903_20261112_104903_1794480543715824425.png"
+      ],
+      "success": true
+    },
+    {
+      "pipeline_step": "pilot_segment_nuclei:qc_planes",
+      "overall_verdict": "WARN",
+      "summary": "Visible instance overlays generally align with DAPI-positive nuclei on representative interior and higher-signal planes, but the z=0 panel is effectively unusable and some dim nuclei, weak-background puncta, limited merges, and rough boundaries remain.",
+      "issues_found": [
+        "z=0 overlay/segmentation panel is effectively failed or obscured",
+        "Some dim nuclei are missed",
+        "Occasional weak-background false positives",
+        "Limited merges or irregular boundaries"
+      ],
+      "recommended_action": "Inspect the actual label stack and representative planes with the user before accepting the count; do not infer whole-stack emptiness from first-plane-only metadata.",
+      "image_paths_inspected": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png"
+      ],
+      "success": true
+    },
+    {
+      "pipeline_step": "pilot_segment_nuclei:qc_mip",
+      "overall_verdict": "WARN",
+      "summary": "The XY maximum-projection overlay is non-empty and broadly follows DAPI-positive signal, but dense projected regions appear confluent and may contain under-separated or merged nuclei; minor edge/background extensions are possible.",
+      "issues_found": [
+        "Likely under-separation or merging in crowded regions",
+        "Possible minor mask extensions into low-signal or edge background",
+        "Maximum projection overlap limits assessment of true 3D instances"
+      ],
+      "recommended_action": "Use the projection only as supplementary QC and rely on user inspection of representative single-plane overlays and the 3D label stack before accepting counts.",
+      "image_paths_inspected": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png"
+      ],
+      "success": true
+    },
+    {
+      "pipeline_step": "pilot_segment_soma",
+      "overall_verdict": "WARN",
+      "summary": "The soma mask is non-empty and some detections correspond to bright structures, but it appears sparse and punctate rather than consistently covering coherent soma/membrane-positive structures.",
+      "issues_found": [
+        "Sparse mask dominated by punctate detections",
+        "Incomplete coverage of coherent soma/membrane-positive structures",
+        "Visible fragmentation of larger or irregular bright regions",
+        "The 300-voxel minimum-volume filter may be overly aggressive"
+      ],
+      "recommended_action": "Have the user inspect the raw stack, labels, and QC overlays. If coherent soma coverage is inadequate, revise the segmentation or size filter before batch processing.",
+      "image_paths_inspected": [
+        "/data/tasks/Globias_workshop/stain/F0003_stain.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_labels_uint32.tif",
+        "/app/data/chats/vlm_captures/compilation_20261112_105533_1794480933862339798.png"
+      ],
+      "success": true
+    },
+    {
+      "pipeline_step": "pilot_segment_soma_upper_size_filter_revision",
+      "overall_verdict": "PASS",
+      "summary": "The upper-volume filter removed oversized low-signal false regions at z=56 and z=77 while retaining smaller puncta-like detections and preserving the previously good z=26 result.",
+      "issues_found": [
+        "Possible residual touching or merging among nearby detections",
+        "Possible loss of some faint peripheral objects",
+        "Minor boundary/background ambiguity near bright tissue edges"
+      ],
+      "recommended_action": "Show the full-resolution revised mask and before/after overlays to the user for final approval before batch processing.",
+      "image_paths_inspected": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_QC_planes_before_after_revised.png"
+      ],
+      "success": true
+    },
+    {
+      "pipeline_step": "batch_segmentation_representative_audit",
+      "overall_verdict": "PASS",
+      "summary": "Across representative low-, typical-, and high-soma-count fields, nuclei and soma overlays broadly tracked visible signal with no systematic field-level segmentation failure.",
+      "issues_found": [
+        "Individual detections may be imperfect, but no systematic anomaly was evident at the compiled-image resolution."
+      ],
+      "recommended_action": "Accept the batch as visually consistent, retaining the user-approved F0003 pilot and quantitative object tables as the primary checks.",
+      "image_paths_inspected": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/F0009/F0009_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/F0009/F0009_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/F0096/F0096_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/F0096/F0096_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/F0011/F0011_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/F0011/F0011_stain_micro_sam_3d_soma_QC_planes_overlay.png"
+      ],
+      "success": true
+    },
+    {
+      "pipeline_step": "plotting:figure1_per_field_counts_panels.png",
+      "overall_verdict": "PASS",
+      "summary": "The per-field count figure is legible, unclipped, and clearly compares nuclei and soma-marker counts across all 20 fields.",
+      "issues_found": [
+        "Rotated field IDs and small bottom annotation should be checked at final print size.",
+        "Connecting lines across categorical field IDs may mildly imply continuity."
+      ],
+      "recommended_action": "Accept; optional panel labels or lighter connecting lines would be cosmetic refinements.",
+      "image_paths_inspected": [
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure1_per_field_counts_panels.png"
+      ],
+      "success": true
+    },
+    {
+      "pipeline_step": "plotting:figure3_counts_scatter_association.png",
+      "overall_verdict": "PASS",
+      "summary": "All 20 observations and field labels, including F0072, are visible; the statistics box is external, all elements are legible and unclipped, and the nonsignificant Pearson/Spearman findings are communicated accurately.",
+      "issues_found": [
+        "Minor optional crowding among labels in the lower-right cluster."
+      ],
+      "recommended_action": "Accept as publication-ready; no substantive correction required.",
+      "image_paths_inspected": [
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure3_counts_scatter_association.png"
+      ],
+      "success": true
+    },
+    {
+      "pipeline_step": "plotting:figure5_representative_raw_channels_pixel_scale.png",
+      "overall_verdict": "WARN",
+      "summary": "Representative raw DAPI and soma-marker panels have clear labels, legible 100 px bars, an explicit physical-calibration caveat, and no clipping or overlap; the F0003 Z-plane identifier is documented in the caption sidecar but is not visible in the rendered panel.",
+      "issues_found": [
+        "The rendered panel does not visibly show a readable F0003 Z-plane identifier; same-plane provenance must be checked in the caption metadata."
+      ],
+      "recommended_action": "Accept labels, scale bars, and calibration caveat; use the sidecar caption for F0003 central-plane provenance, or add an on-image Z-plane identifier if required for publication.",
+      "image_paths_inspected": [
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure5_representative_raw_channels_pixel_scale.png"
+      ],
+      "success": true
+    }
+  ],
+  "operating_mode": "script",
+  "key_decisions": [
+    "User confirmed matched DAPI and soma-stain files are spatially registered, requested per-field paired counts, nuclei-to-soma ratio, and count-count scatterplot, and approved a script-based workflow with user review of pilot overlays.",
+    "Physical calibration is unavailable. Preserve voxel counts as the primary size measurement; any µm³ estimate will be explicitly provisional using XY=0.324512482 µm and assumed Z=1.0 µm. Pilot segmentation will be reviewed by the user before batch execution.",
+    "User chose Pipeline A: channel-specific background correction followed by true-3D micro_sam instance segmentation, with F0003 pilot masks reviewed by the user before batch processing."
+  ],
+  "pipeline_plan": [
+    "verify_stack_io_and_calibration_assumptions: scikit_image (python_data_analyst, main)",
+    "preprocess_dapi_stack_for_3d_detection: scikit_image (python_data_analyst, main)",
+    "preprocess_soma_stain_stack_for_3d_detection: scikit_image (python_data_analyst, main)",
+    "pilot_segment_3d_nuclei: micro_sam (python_data_analyst, napari-mcp)",
+    "pilot_segment_3d_soma_marker_objects: micro_sam (python_data_analyst, napari-mcp)",
+    "generate_pilot_label_overlays_and_object_qc: scikit_image (python_data_analyst, main)",
+    "user_verify_pilot_segmentations: napari_general (napari)",
+    "batch_segment_all_20_registered_pairs: micro_sam (python_data_analyst, napari-mcp)",
+    "measure_3d_objects_and_flag_border_objects: scikit_image (python_data_analyst, main)",
+    "aggregate_per_field_counts_ratios_and_soma_voxel_volumes: scikit_image (python_data_analyst, main)",
+    "calculate_descriptive_statistics_and_count_association: statistics (python_data_analyst, main)",
+    "plot_paired_counts_nuclei_to_soma_ratios_count_scatter_and_soma_size_distribution: plotting (python_data_analyst, main)"
+  ],
+  "relevant_skills": [
+    "/app/skills/napari/micro_sam"
+  ],
+  "recommended_plugin": "micro_sam",
+  "completed_steps": [
+    {
+      "phase": "3",
+      "step": "workspace_setup",
+      "status": "completed",
+      "details": "Standard project workspace created at /app/data/projects/globias_3d_nuclei_soma with scripts, data, processed_images, figures, raw_images, and logs folders.",
+      "timestamp": "2026-11-12T10:29:55Z"
+    },
+    {
+      "phase": "4a",
+      "step": "io_check",
+      "status": "completed",
+      "details": "Verified 20/20 registered DAPI/soma TIFF pairs are readable, one-to-one matched, shape-compatible, and safe for downstream 3D processing. Manifest and summaries saved.",
+      "timestamp": "2026-11-12T10:32:37Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase3_verify_input_integrity_io.py",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/data/input_integrity_manifest.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/logs/input_integrity_summary.json",
+        "/app/data/projects/globias_3d_nuclei_soma/logs/input_integrity_summary.txt"
+      ],
+      "parameters": {
+        "valid_pairs": 20,
+        "expected_pairs": 20,
+        "all_pairs_safe": true
+      }
+    },
+    {
+      "phase": "4b",
+      "step": "pilot_preprocess_dapi",
+      "status": "completed",
+      "details": "Preprocessed F0003 DAPI in float32 with conservative low-frequency haze correction and whole-volume robust normalization; preserved ZYX shape. Per-slice drift was below trigger, so no slice equalization was applied.",
+      "timestamp": "2026-11-12T10:35:38Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4a_preprocess_dapi_F0003_for_micro_sam.py",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_preprocessing_metadata.json",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_preprocessing_qc_raw_vs_corrected.png"
+      ],
+      "parameters": {
+        "shape_zyx": [
+          84,
+          1000,
+          1000
+        ],
+        "input_dtype": "uint16",
+        "output_dtype": "float32",
+        "slice_drift_fraction": 0.0912,
+        "slice_equalization": false,
+        "spatial_haze_fraction": 0.3271,
+        "background_alpha": 0.9,
+        "background_sigma_xy_px": 40.0,
+        "normalization": "whole-volume robust 0-to-1"
+      }
+    },
+    {
+      "phase": "4b",
+      "step": "user_approved_dapi_preprocessing",
+      "status": "completed",
+      "details": "User inspected the raw DAPI stack, corrected stack, and QC montage in Fiji and judged the correction to look good. This approves DAPI preprocessing for the F0003 pilot, but not yet the segmentation or batch run.",
+      "timestamp": "2026-11-12T10:40:11Z",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_preprocessing_qc_raw_vs_corrected.png"
+      ]
+    },
+    {
+      "phase": "4b",
+      "step": "pilot_preprocess_soma_stain",
+      "status": "completed",
+      "details": "Preprocessed F0003 soma stain in float32 with conservative low-frequency haze correction, mild XY-only puncta denoising, and whole-volume robust normalization; preserved ZYX shape and deliberately avoided slice-wise equalization.",
+      "timestamp": "2026-11-12T10:41:07Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4b_preprocess_soma_stain_F0003_for_micro_sam.py",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_preprocessing_metadata.json",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_preprocessing_qc_raw_vs_corrected.png"
+      ],
+      "parameters": {
+        "shape_zyx": [
+          84,
+          1000,
+          1000
+        ],
+        "input_dtype": "uint16",
+        "output_dtype": "float32",
+        "slice_drift_fraction": 0.306,
+        "slice_equalization": false,
+        "puncta_fraction": 0.2174,
+        "denoise_sigma_zyx": [
+          0.0,
+          0.6,
+          0.6
+        ],
+        "spatial_haze_fraction": 0.4127,
+        "background_alpha": 0.9,
+        "background_sigma_xy_px": 40.0,
+        "normalization": "whole-volume robust 0-to-1"
+      }
+    },
+    {
+      "phase": "4b",
+      "step": "user_approved_soma_preprocessing",
+      "status": "completed",
+      "details": "User inspected the raw soma-stain stack, corrected stack, and QC montage in Fiji and judged the correction to look good. Both channel corrections are now approved for F0003 pilot segmentation, but batch segmentation remains unapproved.",
+      "timestamp": "2026-11-12T10:42:42Z",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_preprocessing_qc_raw_vs_corrected.png"
+      ]
+    },
+    {
+      "phase": "4b",
+      "step": "pilot_segment_nuclei_failed",
+      "status": "failed",
+      "details": "F0003 micro_sam pilot initialized vit_b_lm on CUDA successfully, then crashed before segmentation with NameError: name 'np' is not defined. The kornia FutureWarning is non-fatal.",
+      "timestamp": "2026-11-12T10:46:25Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4c_pilot_segment_F0003_dapi_nuclei_micro_sam_3d.py",
+      "parameters": {
+        "model": "vit_b_lm",
+        "segmentation_mode": "ais",
+        "device": "cuda",
+        "min_voxels": 25
+      }
+    },
+    {
+      "phase": "4b",
+      "step": "pilot_segment_nuclei_debug_fix",
+      "status": "completed",
+      "details": "Fixed missing explicit imports required by the napari-mcp environment; rerun completed successfully with micro_sam vit_b_lm on CUDA. Lesson: explicitly import every alias used in napari-mcp scripts because the main-environment pre-import preamble is absent.",
+      "timestamp": "2026-11-12T10:48:41Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4c_pilot_segment_F0003_dapi_nuclei_micro_sam_3d.py",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_objects_pilot.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_segmentation_metadata.json"
+      ],
+      "parameters": {
+        "model": "vit_b_lm",
+        "segmentation_mode": "ais",
+        "device": "cuda",
+        "objects_before_filter": 3898,
+        "tiny_components_removed": 101,
+        "min_voxels": 25,
+        "objects_after_filter": 3797,
+        "lowest_signal_z": 0
+      }
+    },
+    {
+      "phase": "4b",
+      "step": "user_approved_pilot_nuclei_segmentation",
+      "status": "completed",
+      "details": "User reviewed the F0003 raw DAPI stack, 3D instance labels, representative-plane overlays, and XY projection in Fiji and accepted the pilot segmentation with 3,797 candidate nuclei. Approval applies to the nuclei method; soma segmentation and full batch remain unapproved.",
+      "timestamp": "2026-11-12T10:51:31Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4c_pilot_segment_F0003_dapi_nuclei_micro_sam_3d.py",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_objects_pilot.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png"
+      ],
+      "parameters": {
+        "accepted_object_count": 3797,
+        "model": "vit_b_lm",
+        "segmentation_mode": "ais",
+        "min_voxels": 25,
+        "user_approved": true
+      }
+    },
+    {
+      "phase": "4b",
+      "step": "pilot_segment_soma",
+      "status": "completed",
+      "details": "F0003 soma-marker pilot completed with micro_sam vit_b_lm 3D AIS on CUDA. Detected 197 objects before the conservative 300-voxel filter, removed 48 small components, and retained 149 candidate soma-like 3D objects.",
+      "timestamp": "2026-11-12T10:55:20Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4d_pilot_segment_F0003_soma_micro_sam_3d.py",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_labels_uint32.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_objects_pilot.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_segmentation_metadata.json",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_QC_planes_overlay.png",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_QC_xy_mip_overlay.png"
+      ],
+      "parameters": {
+        "model": "vit_b_lm",
+        "segmentation_mode": "ais",
+        "device": "cuda",
+        "objects_before_filter": 197,
+        "small_components_removed": 48,
+        "min_voxels": 300,
+        "objects_after_filter": 149,
+        "qc_z_indices": {
+          "lowest": 1,
+          "low": 77,
+          "mid": 56,
+          "high": 26
+        }
+      }
+    },
+    {
+      "phase": "4b",
+      "step": "user_rejected_initial_soma_segmentation",
+      "status": "completed",
+      "details": "User reported that early/high-signal slices look good, but low-signal slices 56 and 77 contain incorrectly segmented large areas that are not puncta-like structures. User requested an additional size filter and a revised overlay before approval. Batch processing remains paused.",
+      "timestamp": "2026-11-12T10:59:51Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4d_pilot_segment_F0003_soma_micro_sam_3d.py",
+      "parameters": {
+        "problem_slices_z": [
+          56,
+          77
+        ],
+        "requested_change": "add upper-size filter to remove oversized low-signal artifacts"
+      }
+    },
+    {
+      "phase": "4b",
+      "step": "pilot_soma_upper_size_filter_revision",
+      "status": "completed",
+      "details": "Applied a size-only upper-volume filter to the F0003 soma pilot. A robust IQR upper fence selected maximum volume 18,310 voxels; 16 oversized objects were removed, including labels 181 and 196 intersecting user-identified problem slices z=56/z=77. Retained 133 objects and regenerated labels, measurements, reports, and before/after QC images.",
+      "timestamp": "2026-11-12T11:03:12Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4e_revise_F0003_soma_upper_size_filter_and_qc.py",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_labels_uint32_revised_sizefilter.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_objects_pilot_revised.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_removed_oversized_objects_report.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_upper_size_filter_metadata.json",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_QC_planes_before_after_revised.png",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_QC_z56_z77_before_after_revised.png",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_QC_xy_mip_before_after_revised.png"
+      ],
+      "parameters": {
+        "minimum_voxel_volume": 300,
+        "maximum_voxel_volume": 18310,
+        "upper_cutoff_method": "IQR upper fence; floor to integer",
+        "objects_before": 149,
+        "objects_removed_oversized": 16,
+        "objects_after": 133,
+        "user_problem_slices_z": [
+          56,
+          77
+        ],
+        "removed_labels_intersecting_problem_slices": [
+          181,
+          196
+        ]
+      }
+    },
+    {
+      "phase": "4b",
+      "step": "user_approved_pilot_and_batch_processing",
+      "status": "completed",
+      "details": "User judged the revised soma segmentation decent and explicitly approved continuing through batch processing, statistics, plots, workflow documentation, and QA. Approved pilot settings: DAPI micro_sam vit_b_lm AIS with minimum 25 voxels; soma micro_sam vit_b_lm AIS with 300–18,310 voxel size range; channel-specific preprocessing as piloted.",
+      "timestamp": "2026-11-12T11:04:56Z",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_labels_uint32_revised_sizefilter.tif"
+      ],
+      "parameters": {
+        "nuclei_min_voxels": 25,
+        "soma_min_voxels": 300,
+        "soma_max_voxels": 18310,
+        "model": "vit_b_lm",
+        "segmentation_mode": "ais",
+        "approved_for_batch": true
+      }
+    },
+    {
+      "phase": "4b",
+      "step": "batch_segmentation_and_measurement",
+      "status": "completed",
+      "details": "GPU micro_sam batch completed successfully for all 20 registered fields with no partial or failed fields. Produced per-field preprocessed stacks, uint32 3D labels, object tables, metadata, and QC overlays, plus combined tables and summaries. Total retained objects: 96,590 nuclei and 5,183 soma-marker objects.",
+      "timestamp": "2026-11-12T11:56:55Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4f_batch_segment_20_fields_micro_sam_3d_nuclei_soma.py",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_nuclei_objects_combined.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_soma_objects_combined.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_per_field_counts_status.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_failures.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_summary.json",
+        "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/batch_summary.txt"
+      ],
+      "parameters": {
+        "fields_attempted": 20,
+        "fields_ok": 20,
+        "fields_failed_or_partial": 0,
+        "total_nuclei_objects": 96590,
+        "total_soma_objects": 5183,
+        "model": "micro_sam vit_b_lm AIS",
+        "device": "cuda",
+        "nuclei_min_voxels": 25,
+        "soma_min_voxels": 300,
+        "soma_max_voxels": 18310
+      }
+    },
+    {
+      "phase": "4c",
+      "step": "statistics",
+      "status": "completed",
+      "details": "Statistics completed across 20 fields. Total-count Pearson r=0.3185, 95% CI [-0.1443, 0.6670], p=0.1711; Spearman rho=0.4018, p=0.0791. Nonborder sensitivity: Pearson r=0.3270, p=0.1593; Spearman rho=0.3528, p=0.1271. No test reached alpha=0.05. Field-level summaries and border-aware soma voxel-volume summaries saved.",
+      "timestamp": "2026-11-12T12:01:06Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4g_stage1_statistics_counts_ratios_soma_volume.py",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/data/Statistics_Results.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/data/field_counts_with_safe_ratios.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/data/missingness_report.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/data/iqr_outlier_report.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/data/soma_voxel_volume_object_level_summary.csv",
+        "/app/data/projects/globias_3d_nuclei_soma/data/soma_field_median_iqr_by_field.csv"
+      ],
+      "parameters": {
+        "n_fields": 20,
+        "pearson_total_r": 0.31852,
+        "pearson_total_p": 0.17109,
+        "pearson_total_ci95": [
+          -0.144347,
+          0.667023
+        ],
+        "spearman_total_rho": 0.401806,
+        "spearman_total_p": 0.0790697,
+        "pearson_nonborder_r": 0.327036,
+        "pearson_nonborder_p": 0.1593,
+        "spearman_nonborder_rho": 0.352764,
+        "spearman_nonborder_p": 0.127119,
+        "bootstrap_resamples": 10000
+      }
+    },
+    {
+      "phase": "4d",
+      "step": "plotting_failed",
+      "status": "failed",
+      "details": "Plotting script stopped during verification because it could not locate the total nuclei-to-soma ratio row using analysis_category=descriptive_counts. No statistical values or source tables were changed.",
+      "timestamp": "2026-11-12T12:03:52Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py"
+    },
+    {
+      "phase": "4d",
+      "step": "plotting_retry_failed",
+      "status": "failed",
+      "details": "Second plotting attempt failed only during ratio-row verification. Diagnostics identified exact rows: analysis_category=ratio_summary; analysis_id ratio_nuclei_to_soma_ratio_total and ratio_nuclei_to_soma_ratio_nonborder; dataset subsets all_objects and nonborder_counts. Source statistics remain unchanged.",
+      "timestamp": "2026-11-12T12:05:18Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py"
+    },
+    {
+      "phase": "4d",
+      "step": "plotting_exact_key_retry_failed",
+      "status": "failed",
+      "details": "Third plotting attempt failed because the total ratio exact key used dataset_subset=all_objects, while the verified Statistics_Results.csv triplet is analysis_id=ratio_nuclei_to_soma_ratio_total, analysis_category=ratio_summary, dataset_subset=total_counts. Nonborder exact key is dataset_subset=nonborder_counts. No source statistics changed.",
+      "timestamp": "2026-11-12T12:06:23Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py"
+    },
+    {
+      "phase": "4d",
+      "step": "plotting_debug_fix",
+      "status": "completed",
+      "details": "Fixed ratio-row lookup using exact Statistics_Results.csv identifiers and generated all four requested publication figures as 300-DPI PNG and editable SVG. Figure 3 uses the precomputed nonsignificant Pearson and Spearman results; Figure 4 uses 4,519 nonborder soma objects and log-scaled voxel volume.",
+      "timestamp": "2026-11-12T12:07:37Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure1_per_field_counts_panels.png",
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure1_per_field_counts_panels.svg",
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure2_per_field_ratios_with_bootstrap_ci.png",
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure2_per_field_ratios_with_bootstrap_ci.svg",
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure3_counts_scatter_association.png",
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure3_counts_scatter_association.svg",
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure4_soma_voxel_distribution_and_field_iqr.png",
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure4_soma_voxel_distribution_and_field_iqr.svg"
+      ],
+      "parameters": {
+        "png_dpi": 300,
+        "n_fields": 20,
+        "nonborder_soma_objects_for_volume": 4519,
+        "soma_volume_scale": "log",
+        "pearson_r": 0.31852,
+        "pearson_p": 0.17109,
+        "spearman_rho": 0.401806,
+        "spearman_p": 0.0790697
+      }
+    },
+    {
+      "phase": "4d",
+      "step": "plotting_visual_qc_fix",
+      "status": "completed",
+      "details": "Moved only the Figure 3 statistics annotation box to avoid obscuring F0072; regenerated all PNG/SVG outputs with identical data and statistics.",
+      "timestamp": "2026-11-12T12:09:37Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure3_counts_scatter_association.png",
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure3_counts_scatter_association.svg"
+      ],
+      "parameters": {
+        "change": "annotation moved from upper-left to upper-right",
+        "statistics_changed": false
+      }
+    },
+    {
+      "phase": "6",
+      "step": "workflow_documentation",
+      "status": "completed",
+      "details": "Saved Workflow_Documentation.md with inputs, approved preprocessing and micro_sam settings, filtering, measurements, statistics, figures, human QC, reproducibility, resolved failures, and limitations.",
+      "timestamp": "2026-11-12T12:13:22Z",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/Workflow_Documentation.md"
+      ]
+    },
+    {
+      "phase": "7",
+      "step": "qa_publishing_correction",
+      "status": "completed",
+      "details": "Added in-project raw F0003 DAPI/stain examples and generated a representative central-plane raw-channel panel with display-only robust contrast, exact 100 px scale bars, and an explicit physical-calibration caveat; no analysis outputs changed.",
+      "timestamp": "2026-11-12T12:18:10Z",
+      "script_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/imagej/phase6_figure5_representative_raw_channels_pixel_scale.groovy",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/raw_images/F0003_DAPI.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/raw_images/F0003_stain.tif",
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure5_representative_raw_channels_pixel_scale.png",
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure5_representative_raw_channels_pixel_scale_caption.txt"
+      ],
+      "parameters": {
+        "field_id": "F0003",
+        "z_plane_1_based": 42,
+        "display_percentiles": "1.0-99.8",
+        "scale_bar": "100 px",
+        "physical_scale_claimed": false
+      }
+    },
+    {
+      "phase": "7",
+      "step": "qa_report",
+      "status": "completed",
+      "details": "Final QA report generated after one publishing-correction round: 5/6 minimal workflow items passed, no critical failures, and raw example/pixel-scale requirements were addressed. Plausibility remains explicitly INCOMPLETE only because the original request supplied no expected object count per field; structural checks found nothing wrong. User instructed that no further QA-agent run should be performed.",
+      "timestamp": "2026-11-12T12:21:35Z",
+      "output_paths": [
+        "/app/data/projects/globias_3d_nuclei_soma/QA_Checklist_Report.md",
+        "/app/data/projects/globias_3d_nuclei_soma/Workflow_Documentation.md",
+        "/app/data/projects/globias_3d_nuclei_soma/figures/figure5_representative_raw_channels_pixel_scale.png"
+      ],
+      "parameters": {
+        "minimal_workflow_passed": 5,
+        "minimal_workflow_total": 6,
+        "critical_failures": 0,
+        "plausibility_verdict": "INCOMPLETE — no user-specified expected count per field",
+        "correction_rounds_used": 1,
+        "further_qa_runs_requested": false
+      }
+    }
+  ],
+  "current_phase": "7"
+}
