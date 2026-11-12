@@ -1,0 +1,58 @@
+{
+  "input_labels_tif": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_labels_uint32.tif",
+  "input_objects_csv": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_objects_pilot.csv",
+  "input_raw_tif": "/data/tasks/Globias_workshop/stain/F0003_stain.tif",
+  "input_corrected_tif": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+  "output_revised_labels_tif": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_labels_uint32_revised_sizefilter.tif",
+  "output_revised_objects_csv": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_objects_pilot_revised.csv",
+  "output_removed_report_csv": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_removed_oversized_objects_report.csv",
+  "output_qc_planes_png": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_QC_planes_before_after_revised.png",
+  "output_qc_focus_png": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_QC_z56_z77_before_after_revised.png",
+  "output_qc_xy_mip_png": "/app/data/projects/globias_3d_nuclei_soma/processed_images/pilot/F0003/F0003_stain_micro_sam_3d_soma_QC_xy_mip_before_after_revised.png",
+  "size_filter": {
+    "min_voxels_kept": 300,
+    "max_voxels_kept": 18310,
+    "rationale": {
+      "q1": 903.0,
+      "q3": 7866.0,
+      "iqr": 6963.0,
+      "iqr_upper_fence": 18310.5,
+      "iqr_outlier_count": 16,
+      "log10_median": 3.4258601450778405,
+      "log10_mad": 0.4701723947643348,
+      "robust_outlier_count": 0,
+      "rule_used": "fallback Tukey upper fence Q3+1.5*IQR"
+    },
+    "rule_summary": "Upper cutoff derived from full voxel_volume distribution using robust log-volume MAD outlier rule with Tukey fallback; no intensity/shape/manual deletion used."
+  },
+  "target_planes": [
+    56,
+    77
+  ],
+  "qc_planes": [
+    10,
+    26,
+    56,
+    77
+  ],
+  "plane_intersection_summary": {
+    "z56_object_count": 1,
+    "z77_object_count": 3,
+    "oversized_removed_ids_intersecting_z56_or_z77": [
+      181,
+      196
+    ]
+  },
+  "counts": {
+    "objects_before": 149,
+    "objects_after": 133,
+    "removed_total": 16,
+    "removed_small_lt300": 0,
+    "removed_oversized_gt_max": 16
+  },
+  "calibration": {
+    "xy_pixel_size_um_provisional": 0.324512482,
+    "z_spacing_um_provisional": 1.0,
+    "note": "PROVISIONAL: XY=0.324512482 um and assumed Z=1.0 um; physical voxel calibration not available."
+  }
+}

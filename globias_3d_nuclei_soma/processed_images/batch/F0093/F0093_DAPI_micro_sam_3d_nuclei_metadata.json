@@ -1,0 +1,83 @@
+{
+  "timestamp_utc": "2026-11-12T11:50:46.994153Z",
+  "field_id": "F0093",
+  "channel_key": "dapi",
+  "raw_shape_zyx": [
+    84,
+    1000,
+    1000
+  ],
+  "preprocessed_dtype": "float32",
+  "labels_dtype": "uint32",
+  "model_type": "vit_b_lm",
+  "segmentation_mode": "ais",
+  "checkpoint_path": null,
+  "device": "cuda",
+  "torch_cuda_available": true,
+  "counts": {
+    "objects_before_size_filter": 5882,
+    "objects_removed_by_size_filter": 264,
+    "objects_after_size_filter": 5618,
+    "touches_xy_border": 347,
+    "touches_z_border": 864,
+    "touches_any_border": 1166
+  },
+  "size_filter": {
+    "min_voxels": 25,
+    "max_voxels": null
+  },
+  "preprocessing": {
+    "pipeline": "dapi_preprocess",
+    "slice_equalization_applied": false,
+    "background_sigma_zyx": [
+      0.0,
+      40.0,
+      40.0
+    ],
+    "background_alpha": 0.9,
+    "background_floor_p5": 137.44052124023438,
+    "normalization_low_percentile": 0.5,
+    "normalization_high_percentile": 99.8,
+    "normalization_low_value": 0.0,
+    "normalization_high_value": 580.8849487304688
+  },
+  "provisional_calibration": {
+    "xy_um": 0.324512482,
+    "z_um_assumed": 1.0,
+    "note": "PROVISIONAL ONLY. Primary reported sizes are voxel counts."
+  },
+  "approved_settings": {
+    "model_type": "vit_b_lm",
+    "segmentation_mode": "ais",
+    "nuclei_min_voxels": 25,
+    "soma_min_voxels": 300,
+    "soma_max_voxels": 18310,
+    "dapi_bg_sigma_zyx": [
+      0.0,
+      40.0,
+      40.0
+    ],
+    "dapi_bg_alpha": 0.9,
+    "soma_denoise_sigma_zyx": [
+      0.0,
+      0.6,
+      0.6
+    ],
+    "soma_bg_sigma_zyx": [
+      0.0,
+      40.0,
+      40.0
+    ],
+    "soma_bg_alpha": 0.9,
+    "slice_equalization": "disabled",
+    "normalization": "whole-volume robust percentile minmax"
+  },
+  "outputs": {
+    "pre_tif": "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/F0093/F0093_DAPI_preprocessed_for_micro_sam_3d_float32_0to1.tif",
+    "label_tif": "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/F0093/F0093_DAPI_micro_sam_3d_nuclei_labels_uint32.tif",
+    "obj_csv": "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/F0093/F0093_DAPI_micro_sam_3d_nuclei_objects.csv",
+    "meta_json": "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/F0093/F0093_DAPI_micro_sam_3d_nuclei_metadata.json",
+    "qc_planes_png": "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/F0093/F0093_DAPI_micro_sam_3d_nuclei_QC_planes_overlay.png",
+    "qc_mip_png": "/app/data/projects/globias_3d_nuclei_soma/processed_images/batch/F0093/F0093_DAPI_micro_sam_3d_nuclei_QC_xy_mip_overlay.png"
+  }
+}

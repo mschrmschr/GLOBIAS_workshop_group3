@@ -1,0 +1,11 @@
+Project: globias_3d_nuclei_soma
+OS: Linux-6.8.0-111-generic-x86_64-with-glibc2.41
+Python: 3.13.14
+Fiji Version: 2.16.0/1.54p
+------------------------------
+--- Core Libraries ---
+pandas: 3.0.5
+numpy: 2.5.1
+matplotlib: 3.11.1
+seaborn: 0.13.2
+scipy: 1.18.0

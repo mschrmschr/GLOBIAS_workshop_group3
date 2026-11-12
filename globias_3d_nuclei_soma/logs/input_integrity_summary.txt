@@ -1,0 +1,7 @@
+Input Integrity / IO Check Summary
+DAPI TIFF files: 20
+Stain TIFF files: 20
+Unique field IDs: 20
+Valid 3D pairs: 20/20
+All pairs safe for downstream 3D processing: True
+Global issues: none

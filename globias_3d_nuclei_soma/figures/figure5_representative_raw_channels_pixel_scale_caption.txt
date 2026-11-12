@@ -1,0 +1,9 @@
+Figure: Representative raw channel panel for F0003
+Output PNG: /app/data/projects/globias_3d_nuclei_soma/figures/figure5_representative_raw_channels_pixel_scale.png
+Source DAPI stack: /data/tasks/Globias_workshop/DAPI/F0003_DAPI.tif
+Source soma stack: /data/tasks/Globias_workshop/stain/F0003_stain.tif
+Selected representative Z plane (1-based): 42 of 84
+Panel extent/crop: full frame, identical for both channels (1000x1000 px)
+Display adjustment: Per-panel robust display contrast from selected Z plane histogram: p1.0 to p99.8, fallback to min/max if needed; display-only on duplicate slices.
+Scale bar: length=100 pixels, thickness=6 px, white, lower-right on each panel, label text exactly "100 px"
+Calibration caveat: Physical calibration is uncertain; bars are shown in pixels only and not converted to microns.

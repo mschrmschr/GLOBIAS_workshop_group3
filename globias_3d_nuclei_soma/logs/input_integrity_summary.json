@@ -1,0 +1,31 @@
+{
+  "input_dirs": {
+    "dapi_dir": "/data/tasks/Globias_workshop/DAPI",
+    "stain_dir": "/data/tasks/Globias_workshop/stain"
+  },
+  "output_files": {
+    "manifest_csv": "/app/data/projects/globias_3d_nuclei_soma/data/input_integrity_manifest.csv",
+    "summary_json": "/app/data/projects/globias_3d_nuclei_soma/logs/input_integrity_summary.json",
+    "summary_txt": "/app/data/projects/globias_3d_nuclei_soma/logs/input_integrity_summary.txt"
+  },
+  "counts": {
+    "dapi_tiff_files": 20,
+    "stain_tiff_files": 20,
+    "field_ids_union": 20,
+    "rows_in_manifest": 20,
+    "valid_pairs": 20
+  },
+  "requirements": {
+    "expected_pairs": 20,
+    "exactly_20_by_id": true,
+    "exactly_20_dapi_files": true,
+    "exactly_20_stain_files": true,
+    "all_pairs_valid": true
+  },
+  "all_pairs_safe_for_downstream_3d_processing": true,
+  "global_errors": [],
+  "files_without_field_id": {
+    "dapi": [],
+    "stain": []
+  }
+}

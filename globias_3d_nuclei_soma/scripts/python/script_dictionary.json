@@ -1,0 +1,163 @@
+{
+    "phase3_verify_input_integrity_io.py": {
+        "full_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase3_verify_input_integrity_io.py",
+        "language": "Python",
+        "description": "Phase-3 input integrity script: scans DAPI/stain TIFF folders, pairs by F####, validates 20 one-to-one 3D pairs (readability, shape/axes/dtype/Z/XY consistency), extracts TIFF/ImageJ/OME calibration metadata without unit assumptions, writes per-field manifest CSV and JSON/TXT summaries with downstream safety flag.",
+        "version": 1,
+        "last_modified": "2026-11-12T10:32:04.437765",
+        "history": []
+    },
+    "phase4a_preprocess_dapi_F0003_for_micro_sam.py": {
+        "full_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4a_preprocess_dapi_F0003_for_micro_sam.py",
+        "language": "Python",
+        "description": "Preprocesses F0003 DAPI ZYX stack for later 3D micro_sam detection via conservative drift-aware haze correction and global robust normalization; saves float32 0-1 TIFF, QC PNG, and JSON metadata with parameters/percentiles.",
+        "version": 1,
+        "last_modified": "2026-11-12T10:34:39.337144",
+        "history": []
+    },
+    "phase4b_preprocess_soma_stain_F0003_for_micro_sam.py": {
+        "full_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4b_preprocess_soma_stain_F0003_for_micro_sam.py",
+        "language": "Python",
+        "description": "Preprocess F0003 soma-stain 3D stack for micro_sam: conservative whole-volume haze correction, optional tiny-scale puncta denoise, global robust normalization, and save TIFF+metadata JSON+QC PNG (including low-signal slice).",
+        "version": 2,
+        "last_modified": "2026-11-12T10:38:13.844689",
+        "history": [
+            {
+                "archived_at": "20261112_103813_842758",
+                "archived_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/archive/20261112_103813_842758_phase4b_preprocess_soma_stain_F0003_for_micro_sam.py",
+                "description": "Preprocess F0003 soma-stain 3D stack with conservative whole-volume haze correction and robust normalization for later micro_sam segmentation; export corrected TIFF, metadata JSON, and QC PNG.",
+                "version": 1,
+                "failure_reason": "Updated by user/agent"
+            }
+        ]
+    },
+    "phase4c_pilot_segment_F0003_dapi_nuclei_micro_sam_3d.py": {
+        "full_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4c_pilot_segment_F0003_dapi_nuclei_micro_sam_3d.py",
+        "language": "Python",
+        "description": "Fix undefined aliases in micro_sam pilot script by adding explicit imports for numpy (np) and other used aliases (os, pandas, matplotlib) required in napari-mcp env.",
+        "version": 3,
+        "last_modified": "2026-11-12T10:46:53.091830",
+        "history": [
+            {
+                "archived_at": "20261112_104457_150630",
+                "archived_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/archive/20261112_104457_150630_phase4c_pilot_segment_F0003_dapi_nuclei_micro_sam_3d.py",
+                "description": "Pilot true-3D micro_sam AIS nuclei segmentation for F0003 DAPI with GPU, tiny-object filtering, border flags, QC overlays, per-object CSV, uint32 label TIFF, and metadata JSON.",
+                "version": 1,
+                "failure_reason": "Updated by user/agent"
+            },
+            {
+                "archived_at": "20261112_104653_089846",
+                "archived_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/archive/20261112_104653_089846_phase4c_pilot_segment_F0003_dapi_nuclei_micro_sam_3d.py",
+                "description": "Pilot true-3D micro_sam AIS nuclei segmentation on preprocessed F0003 DAPI (GPU/cuda, vit_b_lm, min-voxel filter=25) with uint32 label TIFF, per-object CSV (centroid/bbox/border flag/provisional um3), QC overlays, and metadata JSON.",
+                "version": 2,
+                "failure_reason": "Script failed with NameError: name 'np' is not defined after micro_sam model initialization in napari-mcp env."
+            }
+        ]
+    },
+    "phase4d_pilot_segment_F0003_soma_micro_sam_3d.py": {
+        "full_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4d_pilot_segment_F0003_soma_micro_sam_3d.py",
+        "language": "Python",
+        "description": "Pilot F0003 soma-marker micro_sam 3D AIS segmentation (vit_b_lm on CUDA) with conservative min-volume filter=300 voxels, uint32 labels, per-object border-aware measurements, and QC overlays (lowest/low/mid/high-signal planes + XY MIP).",
+        "version": 2,
+        "last_modified": "2026-11-12T10:53:42.329265",
+        "history": [
+            {
+                "archived_at": "20261112_105342_327056",
+                "archived_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/archive/20261112_105342_327056_phase4d_pilot_segment_F0003_soma_micro_sam_3d.py",
+                "description": "Pilot true-3D micro_sam AIS segmentation for F0003 soma-marker stack with conservative size filtering, per-object measurement CSV, metadata JSON, and QC overlays.",
+                "version": 1,
+                "failure_reason": "Updated by user/agent"
+            }
+        ]
+    },
+    "phase4e_revise_F0003_soma_upper_size_filter_and_qc.py": {
+        "full_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4e_revise_F0003_soma_upper_size_filter_and_qc.py",
+        "language": "Python",
+        "description": "Pilot F0003 soma post-processing revision: apply size-only filter (keep 300<=voxel_volume<=derived max via robust log-MAD/Tukey), relabel sequentially, regenerate per-object CSV with centroids/bboxes/border flags/provisional um3, emit removed-object report and metadata JSON, and save before-vs-after QC overlays for z10/z26/z56/z77 plus XY MIP.",
+        "version": 1,
+        "last_modified": "2026-11-12T11:02:21.603869",
+        "history": []
+    },
+    "phase4f_batch_segment_20_fields_micro_sam_3d_nuclei_soma.py": {
+        "full_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4f_batch_segment_20_fields_micro_sam_3d_nuclei_soma.py",
+        "language": "Python",
+        "description": "Add per-field output inventory and field-wise status table to batch summary JSON for explicit 20/20 status and output listing.",
+        "version": 3,
+        "last_modified": "2026-11-12T11:08:34.573806",
+        "history": [
+            {
+                "archived_at": "20261112_110812_428195",
+                "archived_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/archive/20261112_110812_428195_phase4f_batch_segment_20_fields_micro_sam_3d_nuclei_soma.py",
+                "description": "Batch 3D preprocessing + micro_sam AIS segmentation for 20 DAPI/stain pairs with per-field labels, object measurements, QC overlays, resumable checkpoints, and aggregate summaries.",
+                "version": 1,
+                "failure_reason": "Updated by user/agent"
+            },
+            {
+                "archived_at": "20261112_110834_571671",
+                "archived_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/archive/20261112_110834_571671_phase4f_batch_segment_20_fields_micro_sam_3d_nuclei_soma.py",
+                "description": "Resumable napari-mcp batch script: preprocess DAPI/soma stacks with approved fixed settings, run true-3D micro_sam AIS, apply nuclei>=25 and soma 300-18310 voxel filters, save per-field outputs/QC/metadata and aggregate nuclei+soma+counts+summary files.",
+                "version": 2,
+                "failure_reason": "Updated by user/agent"
+            }
+        ]
+    },
+    "phase4g_stage1_statistics_counts_ratios_soma_volume.py": {
+        "full_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4g_stage1_statistics_counts_ratios_soma_volume.py",
+        "language": "Python",
+        "description": "Stage 1 stats for 20 paired fields: verify all field_status=ok, compute field-level count descriptives, Pearson+95% CI and Spearman associations (total/nonborder), ratio summaries with bootstrap median CI (n_boot=10000), soma voxel-volume object-level and field-median summaries; saves Statistics_Results.csv plus field_counts_with_safe_ratios.csv, missingness_report.csv, iqr_outlier_report.csv, soma_voxel_volume_object_level_summary.csv, soma_field_median_iqr_by_field.csv; no plotting.",
+        "version": 1,
+        "last_modified": "2026-11-12T12:00:36.670663",
+        "history": []
+    },
+    "phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py": {
+        "full_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py",
+        "language": "Python",
+        "description": "Stage-2 plotting: move Figure 3 Pearson/Spearman annotation to an external right-margin box via fig.text + expanded layout; preserve all data/statistics, line/CI, labels, filenames, and PNG(300 DPI)+SVG exports for all 4 figures.",
+        "version": 7,
+        "last_modified": "2026-11-12T12:10:26.875133",
+        "history": [
+            {
+                "archived_at": "20261112_120447_643159",
+                "archived_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/archive/20261112_120447_643159_phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py",
+                "description": "Stage-2 plotting script: reads Statistics_Results.csv + supporting field/object tables, renders 4 publication figures (counts panels, ratio panels with bootstrap median CI from stats CSV, annotated count-count scatter, soma voxel-volume distribution + field median/IQR panel), colorblind palette, 300 DPI PNG + SVG to figures/.",
+                "version": 1,
+                "failure_reason": "VERIFICATION FAILED: could not find stats row for terms=['nuclei', 'soma', 'ratio', 'total'], analysis_category=descriptive_counts, dataset_subset=None, test_name_contains=None."
+            },
+            {
+                "archived_at": "20261112_120549_238528",
+                "archived_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/archive/20261112_120549_238528_phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py",
+                "description": "Fix Stage 2 ratio stats lookup to use ratio rows by subset/category and emit detailed available analysis_id/category/dataset_subset/variable diagnostics on lookup failure; preserves all figure paths and precomputed statistics.",
+                "version": 2,
+                "failure_reason": "VERIFICATION FAILED during ratio-row lookup because inference used broad term matching and wrong category/subset assumptions."
+            },
+            {
+                "archived_at": "20261112_120555_782445",
+                "archived_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/archive/20261112_120555_782445_phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py",
+                "description": "Stage-2 plotting debug: ratio panels now use exact Statistics_Results row matching by analysis_id+analysis_category+dataset_subset for total and nonborder ratios; all figure outputs/paths unchanged.",
+                "version": 3,
+                "failure_reason": "VERIFICATION FAILED during ratio-row lookup because inference used broad term matching and wrong category/subset assumptions."
+            },
+            {
+                "archived_at": "20261112_120658_326985",
+                "archived_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/archive/20261112_120658_326985_phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py",
+                "description": "Use exact analysis_id/category/subset keys for ratio rows in Stage-2 plotting; preserve all other plotting/statistics logic and outputs.",
+                "version": 4,
+                "failure_reason": "VERIFICATION FAILED: exact ratio row not found because total ratio triplet used dataset_subset='all_objects' instead of verified 'total_counts'."
+            },
+            {
+                "archived_at": "20261112_120901_088272",
+                "archived_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/archive/20261112_120901_088272_phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py",
+                "description": "Stage-2 plotting debug fix: only update total-ratio exact key to dataset_subset='total_counts'; preserve all figure logic and output the same four figures as 300-DPI PNG+SVG pairs in figures/.",
+                "version": 5,
+                "failure_reason": "Visual QC reported Figure 3 statistics annotation box obscures F0072 point/label; apply minimal plotting-only layout fix without changing data/statistics/outputs."
+            },
+            {
+                "archived_at": "20261112_121026_870594",
+                "archived_path": "/app/data/projects/globias_3d_nuclei_soma/scripts/python/archive/20261112_121026_870594_phase4h_stage2_publication_plots_counts_ratios_scatter_soma_volume.py",
+                "description": "Stage 2 plotting repair: relocate Figure 3 correlation statistics annotation box from upper-left to upper-right to avoid occluding F0072, preserving all statistics, figure designs, filenames, and PNG 300-DPI + SVG exports.",
+                "version": 6,
+                "failure_reason": "Updated by user/agent"
+            }
+        ]
+    }
+}
